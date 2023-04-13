@@ -17,17 +17,22 @@
   z-index: -1;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  justify-content: center;
-  overflow-x: auto;
-  border-collapse: separate;
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.grid-item {
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cell {
   border: 1px solid black;
+  flex: 1;
   padding: 10px;
+  text-align: center;
 }
