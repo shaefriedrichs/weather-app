@@ -1,7 +1,3 @@
-h1 {
-  color: blue;
-}
-
 #background-container {
   position: fixed;
   top: 0;
@@ -19,4 +15,19 @@ h1 {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+  overflow-x: auto;
+  border-collapse: separate;
+}
+
+.grid-item {
+  border: 1px solid black;
+  padding: 10px;
 }

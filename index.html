@@ -15,24 +15,33 @@
             <source src="src/pink-sky.mp4" type="video/mp4">
         </video> -->
 
+        <form action="/search" method="get">
+            <!-- <label for="search-input" class="visually-hidden"></label> -->
+            <input type="text" id="search-input" name="q" placeholder="Enter city name" autofocus autocomplete="name">
+            <button type="submit" id="search-button"><i class="fas fa-search">🔍</i></button>
+        </form>
 
-        <div>Search bar</div>
+        <section id="city-and-date">
+            <h1>City</h1>
+            <h3>Date</h3>
+        </section>
 
-        <section>City name and date</section>
+        <section id="current-conditions">
+            <div class="grid-container">
+                <div class="grid-item">UV index</div>
+                <div class="grid-item">Wind</div>
+                <div class="grid-item">Rainfall</div>
+                <div class="grid-item">Humidity</div>
+                <div class="grid-item">Pressure</div>
+                <div class="grid-item">Visibility</div>
+            </div>
 
-        <section>Current temperature</section>
+            <section>Forecast</section>
 
-        <section>Current conditions</section>
-
-        <aside>Forecast</aside>
-
-        <footer>This project was coded by <a href="https://github.com/shaefriedrichs">Shae Friedrichs</a> and is <a
-                href="https://github.com/shaefriedrichs/weather-app-final.git">open-sourced on Github</a>, and <a
-                href="https://animated-biscuit-0d226a.netlify.app/">hosted on Netlify</a>.</footer>
+            <footer>This project was coded by <a href="https://github.com/shaefriedrichs">Shae Friedrichs</a> and is <a
+                    href="https://github.com/shaefriedrichs/weather-app-final.git">open-sourced on Github</a>, and <a
+                    href="https://animated-biscuit-0d226a.netlify.app/">hosted on Netlify</a>.</footer>
     </div>
-
-
-
 
     <script src="src/app.js"></script>
 </body>
