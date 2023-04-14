@@ -5,6 +5,7 @@ body {
 
 h1 {
   font-size: 34px;
+  text-transform: capitalize;
 }
 
 h3 {
@@ -62,6 +63,7 @@ h3 {
   flex: 1;
   padding: 10px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .link {
