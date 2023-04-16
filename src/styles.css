@@ -31,12 +31,12 @@ h3 {
   overflow: hidden;
 }
 
-#icon {
+#temperature {
   font-size: 60px;
 }
 
-#temperature {
-  font-size: 60px;
+#description::first-letter {
+  text-transform: capitalize;
 }
 
 #temperature-type {
@@ -63,7 +63,6 @@ h3 {
   flex: 1;
   padding: 10px;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .link {

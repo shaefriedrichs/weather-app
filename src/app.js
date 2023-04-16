@@ -1,14 +1,20 @@
-// const video = document.getElementById("background-video");
+// // const video = document.getElementById("background-video");
 
-// video.addEventListener("ended", function () {
-//   video.playbackRate = -1;
-//   video.play();
-// });
+// // video.addEventListener("ended", function () {
+// //   video.playbackRate = -1;
+// //   video.play();
+// // });
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
   let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let days = [
     "Sunday",
     "Monday",
@@ -20,32 +26,63 @@ function formatDate(timestamp) {
   ];
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
+  // }
+  // // function getForecast(response) {
+  // //   let forecast = response.data.daily;
+  // //   let forecastElement = document.querySelector("#forecast");
+  // // }
+  // function getForecast(coordinates) {
+  //   let apiKey = "4aed95a7c18a9c7413107cf90f047ea15787";
+  //   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  //   axios.get(apiUrl).then(displayTemperature);
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
-  let realFeelElement = document.querySelector("#real-feel");
+  let tempMinElement = document.querySelector("#temp-min");
+  let tempMaxElement = document.querySelector("#temp-max");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
-  cityElement.innerHTML = response.data.city;
-  descriptionElement.innerHTML =
-    "Condition: " + response.data.condition.description;
-  realFeelElement.innerHTML =
-    "Real feel: " + Math.round(response.data.temperature.feels_like);
-  humidityElement.innerHTML =
-    "Humidity: " + response.data.temperature.humidity + "%";
+  //   celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  tempMinElement.innerHTML =
+    "Min temp: " + Math.round(response.data.main.temp_min) + "°C";
+  tempMaxElement.innerHTML =
+    "Max temp: " + Math.round(response.data.main.temp_max) + "°C";
+  humidityElement.innerHTML = "Humidity: " + response.data.main.humidity + "%";
   windElement.innerHTML =
-    "Wind speed: " + Math.round(response.data.wind.speed) + "km/h";
-  dateElement.innerHTML = formatDate(response.data.time * 1000);
+    "Wind speed: " + Math.round(response.data.wind.speed * 3.6) + "km/h";
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  //   getForecast(response.data.coord);
 }
 
-let apiKey = "4aed709te6b3062b91dd0ccea0eofd1e";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query={city}&key=${apiKey}`;
-
+let city = "paris";
+let apiKey = "95a7c18a9c7413107cf90f047ea15787";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   let searchInputElement = document.querySelector("#search-input");
+//   search(searchInputElement.value);
+// }
+
+// search("Auckland");
+
+// let form = document.querySelector("#search-container");
+// form.addEventListener("submit", handleSubmit);
