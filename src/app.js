@@ -71,18 +71,19 @@ function displayTemperature(response) {
   //   getForecast(response.data.coord);
 }
 
-let city = "paris";
-let apiKey = "95a7c18a9c7413107cf90f047ea15787";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "95a7c18a9c7413107cf90f047ea15787";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-// function handleSubmit(event) {
-//   event.preventDefault();
-//   let searchInputElement = document.querySelector("#search-input");
-//   search(searchInputElement.value);
-// }
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#search-input");
+  search(searchInputElement.value);
+}
 
-// search("Auckland");
+search("Auckland");
 
-// let form = document.querySelector("#search-container");
-// form.addEventListener("submit", handleSubmit);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
