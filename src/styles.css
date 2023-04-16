@@ -39,7 +39,7 @@ h3 {
   text-transform: capitalize;
 }
 
-#temperature-type {
+#units {
   position: relative;
   font-size: 16px;
   top: -34px;
@@ -65,6 +65,12 @@ h3 {
   text-align: center;
 }
 
-.link {
+.unit-link {
+  text-decoration: none;
+  color: #fff;
+  cursor: default;
+}
+
+.unit-link:hover {
   text-decoration: none;
 }
