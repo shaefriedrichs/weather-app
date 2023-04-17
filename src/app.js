@@ -1,11 +1,11 @@
-const video = document.getElementById("background-video");
+// const video = document.getElementById("background-video");
 
-video.addEventListener("ended", function () {
-  video.playbackRate = -1;
-  video.play();
-  video.muted = true;
-  video.play();
-});
+// video.addEventListener("ended", function () {
+//   video.playbackRate = -1;
+//   video.play();
+//   video.muted = true;
+//   video.play();
+// });
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
