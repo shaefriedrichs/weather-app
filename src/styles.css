@@ -208,7 +208,7 @@ footer {
   color: rgb(51, 51, 51);
 }
 
-.forecast-container {
+#forecast {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;

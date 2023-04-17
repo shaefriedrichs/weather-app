@@ -1,12 +1,3 @@
-// const video = document.getElementById("background-video");
-
-// video.addEventListener("ended", function () {
-//   video.playbackRate = -1;
-//   video.play();
-//   video.muted = true;
-//   video.play();
-// });
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -28,16 +19,46 @@ function formatDate(timestamp) {
   ];
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
-  // }
-  // // function getForecast(response) {
-  // //   let forecast = response.data.daily;
-  // //   let forecastElement = document.querySelector("#forecast");
-  // // }
-  // function getForecast(coordinates) {
-  //   let apiKey = "4aed95a7c18a9c7413107cf90f047ea15787";
-  //   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  //   axios.get(apiUrl).then(displayTemperature);
 }
+function displayForecast() {
+  let days = ["Thur", "Fri", "Sat"];
+
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="forecast-card" id="day-1">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="weather-forecast-date">${day}
+                        </div>
+                        <div class="forecast-icon">
+                            Icon
+                        </div>
+                        <div class="weather-forecast-temperatures">
+                            <span class="weather-forecast-temperature-min">Min</span>
+                            <span class="weather-forecast-temperature-max">Max</span>
+                        </div>`;
+  });
+  forecastHTML =
+    forecastHTML +
+    `<div class="weather-forecast-date">
+                            Day
+                        </div>
+                        <div class="forecast-icon">
+                            Icon
+                        </div>
+                        <div class="weather-forecast-temperatures">
+                            <span class="weather-forecast-temperature-min">Min</span>
+                            <span class="weather-forecast-temperature-max">Max</span>
+                        </div>`;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+// function getForecast(coordinates) {
+//   let apiKey = "4aed95a7c18a9c7413107cf90f047ea15787";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+//   axios.get(apiUrl).then(displayTemperature);
 
 function displayTemperature(response) {
   console.log(response);
@@ -110,3 +131,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Auckland");
+displayForecast();
