@@ -143,7 +143,7 @@ footer {
   left: 0;
   width: 200%;
   height: 100%;
-  animation: span-left 80s linear forwards;
+  /* animation: span-left 80s linear forwards; */
 }
 
 .background img {
@@ -206,6 +206,19 @@ footer {
 .fa-solid {
   font-size: 18px;
   color: rgb(51, 51, 51);
+}
+
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 40px;
+  border-style: solid;
+}
+
+.forecast-card {
+  border-style: solid;
 }
 
 .link {
