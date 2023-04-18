@@ -20,48 +20,8 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
-function displayForecast() {
-  let days = ["Thur", "Fri", "Sat"];
-
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="forecast-card" id="day-1">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="weather-forecast-date">${day}
-                        </div>
-                        <div class="forecast-icon">
-                            Icon
-                        </div>
-                        <div class="weather-forecast-temperatures">
-                            <span class="weather-forecast-temperature-min">Min</span>
-                            <span class="weather-forecast-temperature-max">Max</span>
-                        </div>`;
-  });
-  forecastHTML =
-    forecastHTML +
-    `<div class="weather-forecast-date">
-                            Day
-                        </div>
-                        <div class="forecast-icon">
-                            Icon
-                        </div>
-                        <div class="weather-forecast-temperatures">
-                            <span class="weather-forecast-temperature-min">Min</span>
-                            <span class="weather-forecast-temperature-max">Max</span>
-                        </div>`;
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
-}
-
-// function getForecast(coordinates) {
-//   let apiKey = "4aed95a7c18a9c7413107cf90f047ea15787";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-//   axios.get(apiUrl).then(displayTemperature);
 
 function displayTemperature(response) {
-  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -90,12 +50,10 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  //   getForecast(response.data.coord);
 }
 
 function search(city) {
-  let apiKey = "95a7c18a9c7413107cf90f047ea15787";
+  let apiKey = "2daf65f0cdaa917f11026e8a128ce271";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -131,4 +89,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Auckland");
-displayForecast();
