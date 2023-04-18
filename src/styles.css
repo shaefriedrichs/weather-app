@@ -213,3 +213,17 @@ footer {
   font-weight: bold;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.342);
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+}
